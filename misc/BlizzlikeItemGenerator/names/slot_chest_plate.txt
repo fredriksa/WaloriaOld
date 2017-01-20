@@ -1,9 +1,0 @@
-Breastplate
-Chestplate
-Armor
-Harness
-Chestpiece
-Chest
-Surcoat
-Chestguard
-Embrace

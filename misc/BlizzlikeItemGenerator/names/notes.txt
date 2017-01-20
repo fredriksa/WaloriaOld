@@ -1,4 +1,0 @@
-helmet
-
-first column plate
-second column cloth
