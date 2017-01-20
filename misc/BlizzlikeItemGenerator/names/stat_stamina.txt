@@ -1,0 +1,9 @@
+of Stamina
+of Endurance
+of Energy
+of Fortitude
+of Grit
+of Resilience
+of Vitality
+of Guts
+of Tolerance

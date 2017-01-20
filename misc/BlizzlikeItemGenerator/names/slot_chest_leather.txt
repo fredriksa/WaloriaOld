@@ -1,0 +1,11 @@
+Tunic
+Armor
+Breastplate
+Carapace
+Vest
+Jerkin
+Chestguard
+Wraps
+Chestpiece
+Harness
+Doublet

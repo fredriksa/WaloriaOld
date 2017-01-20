@@ -1,0 +1,9 @@
+of Character
+of Energy
+of Essence
+of Heart
+of Life
+of Resolve
+of Vitality
+of Will
+of Air

@@ -1,0 +1,8 @@
+Drape
+Cloak
+Cape
+Mantle
+Blanket
+Towel
+Smock
+Shawl

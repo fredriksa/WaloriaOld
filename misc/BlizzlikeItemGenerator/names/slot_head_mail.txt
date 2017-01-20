@@ -1,0 +1,11 @@
+Circlet
+Helm
+Helmet
+Coif
+Headguard
+Crown
+Band
+Headdress
+Skullcap
+Headwrap
+Coronet
