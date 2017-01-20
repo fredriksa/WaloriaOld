@@ -1,0 +1,1 @@
+Requires Rochet's AIO both client and server side as well as the custom database tables filled with data.
