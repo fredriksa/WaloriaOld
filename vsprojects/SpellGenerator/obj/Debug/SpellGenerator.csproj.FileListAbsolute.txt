@@ -1,0 +1,9 @@
+c:\users\freddan962\documents\visual studio 2015\Projects\SpellGenerator\SpellGenerator\bin\Debug\SpellGenerator.exe.config
+c:\users\freddan962\documents\visual studio 2015\Projects\SpellGenerator\SpellGenerator\bin\Debug\SpellGenerator.exe
+c:\users\freddan962\documents\visual studio 2015\Projects\SpellGenerator\SpellGenerator\bin\Debug\SpellGenerator.pdb
+c:\users\freddan962\documents\visual studio 2015\Projects\SpellGenerator\SpellGenerator\obj\Debug\SpellGenerator.csprojResolveAssemblyReference.cache
+c:\users\freddan962\documents\visual studio 2015\Projects\SpellGenerator\SpellGenerator\obj\Debug\SpellGenerator.Application.resources
+c:\users\freddan962\documents\visual studio 2015\Projects\SpellGenerator\SpellGenerator\obj\Debug\SpellGenerator.Properties.Resources.resources
+c:\users\freddan962\documents\visual studio 2015\Projects\SpellGenerator\SpellGenerator\obj\Debug\SpellGenerator.csproj.GenerateResource.Cache
+c:\users\freddan962\documents\visual studio 2015\Projects\SpellGenerator\SpellGenerator\obj\Debug\SpellGenerator.exe
+c:\users\freddan962\documents\visual studio 2015\Projects\SpellGenerator\SpellGenerator\obj\Debug\SpellGenerator.pdb
