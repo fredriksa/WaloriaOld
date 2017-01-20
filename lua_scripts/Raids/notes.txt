@@ -1,0 +1,1 @@
+Requires the latest waloria patch and the server to run Waloria's latest DBC files for custom spells to work.
