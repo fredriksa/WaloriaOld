@@ -1,0 +1,81 @@
+/*
+    Simultaneous Core Registration
+    coded by Faded - www.EmuDevs.com
+*/
+
+body{
+    background-color:#2c3e50;
+    background-repeat:no-repeat;
+    background-attachment:fixed;
+    background-position:center;
+    font-family: Verdana, sans-serif;
+    font-size: 12px;
+    color: #FFF;
+    margin: 0;
+    padding: 0;
+}
+
+#header_container {
+    height:65px;
+    left:0;
+    width:100%;
+    top:0;
+    margin: 0 auto;
+}
+
+#header{
+    line-height:60px;
+    margin:0 auto;
+    width:940px;
+    text-align:center;
+    font-size: 18px;
+}
+
+#container {
+    overflow:hidden;
+    width:500px;
+    padding-top: 100px;
+    padding-bottom: 35px;
+    margin: 0 auto;
+}
+
+#content{
+    width: 450px;
+    margin: 0 auto;
+    margin-top:50px;
+}
+
+#footer_container {
+    bottom:0;
+    height:100px;
+    left:0;
+    position:fixed;
+    width:100%;
+}
+
+#footer {
+    line-height:60px;
+    margin:0 auto;
+    width:940px;
+    text-align:center;
+}
+
+fieldset{
+    background-color: #383C47;
+    //opacity: 0.7;
+}
+
+    input.rounded:focus {
+        border-color: #339933;
+    }
+
+    input.rounded:hover {
+        background-color: #FAEBD7;
+    }
+
+    select.rounded:focus {
+        border-color: #339933;
+    }
+    select.rounded:hover {
+        background-color: #FAEBD7;
+    }
