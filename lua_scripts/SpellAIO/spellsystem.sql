@@ -15,6 +15,40 @@ CREATE DATABASE IF NOT EXISTS `world` /*!40100 DEFAULT CHARACTER SET latin1 */;
 USE `world`;
 
 
+-- Dumping structure for table world.custom_banned_spell_system
+CREATE TABLE IF NOT EXISTS `custom_banned_spell_system` (
+  `spellID` int(11) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+-- Dumping data for table world.custom_banned_spell_system: ~23 rows (approximately)
+/*!40000 ALTER TABLE `custom_banned_spell_system` DISABLE KEYS */;
+INSERT INTO `custom_banned_spell_system` (`spellID`) VALUES
+	(45286),
+	(45287),
+	(45284),
+	(45287),
+	(45288),
+	(45289),
+	(59671),
+	(15286),
+	(17962),
+	(8385),
+	(24530),
+	(1002),
+	(1515),
+	(9824),
+	(23880),
+	(605),
+	(47206),
+	(24530),
+	(9824),
+	(9007),
+	(16864),
+	(24530),
+	(23885);
+/*!40000 ALTER TABLE `custom_banned_spell_system` ENABLE KEYS */;
+
+
 -- Dumping structure for table world.custom_spell_system
 CREATE TABLE IF NOT EXISTS `custom_spell_system` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
@@ -1933,7 +1967,7 @@ CREATE TABLE IF NOT EXISTS `custom_spell_system_categories` (
   `category` int(11) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
--- Dumping data for table world.custom_spell_system_categories: ~2 081 rows (approximately)
+-- Dumping data for table world.custom_spell_system_categories: ~2 029 rows (approximately)
 /*!40000 ALTER TABLE `custom_spell_system_categories` DISABLE KEYS */;
 INSERT INTO `custom_spell_system_categories` (`spellID`, `category`) VALUES
 	(116, 1),
@@ -3976,7 +4010,7 @@ CREATE TABLE IF NOT EXISTS `custom_spell_system_category_choices` (
   KEY `id` (`id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=42444 DEFAULT CHARSET=utf8;
 
--- Dumping data for table world.custom_spell_system_category_choices: ~513 rows (approximately)
+-- Dumping data for table world.custom_spell_system_category_choices: ~682 rows (approximately)
 /*!40000 ALTER TABLE `custom_spell_system_category_choices` DISABLE KEYS */;
 INSERT INTO `custom_spell_system_category_choices` (`id`, `characterGUID`, `level`) VALUES
 	(4862, 1194, 1),
@@ -4785,7 +4819,8 @@ INSERT INTO `custom_spell_system_choices` (`characterGUID`, `level`, `spellID1`,
 	(5382, 1, 5185, 635, 331, 2050),
 	(5397, 1, 78, 348, 2098, 1752),
 	(5491, 1, 5176, 2098, 585, 686),
-	(5492, 1, 78, 348, 1752, 686);
+	(5492, 1, 78, 348, 1752, 686),
+	(64, 71, 46845, 53351, 49051, 47812);
 /*!40000 ALTER TABLE `custom_spell_system_choices` ENABLE KEYS */;
 /*!40101 SET SQL_MODE=IFNULL(@OLD_SQL_MODE, '') */;
 /*!40014 SET FOREIGN_KEY_CHECKS=IF(@OLD_FOREIGN_KEY_CHECKS IS NULL, 1, @OLD_FOREIGN_KEY_CHECKS) */;
