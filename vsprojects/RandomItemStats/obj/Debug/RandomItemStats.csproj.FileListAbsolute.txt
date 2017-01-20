@@ -1,0 +1,10 @@
+c:\users\freddan962\documents\visual studio 2015\Projects\RandomItemStats\RandomItemStats\bin\Debug\RandomItemStats.exe.config
+c:\users\freddan962\documents\visual studio 2015\Projects\RandomItemStats\RandomItemStats\bin\Debug\RandomItemStats.exe
+c:\users\freddan962\documents\visual studio 2015\Projects\RandomItemStats\RandomItemStats\bin\Debug\RandomItemStats.pdb
+c:\users\freddan962\documents\visual studio 2015\Projects\RandomItemStats\RandomItemStats\obj\Debug\RandomItemStats.csprojResolveAssemblyReference.cache
+c:\users\freddan962\documents\visual studio 2015\Projects\RandomItemStats\RandomItemStats\obj\Debug\RandomItemStats.Form1.resources
+c:\users\freddan962\documents\visual studio 2015\Projects\RandomItemStats\RandomItemStats\obj\Debug\RandomItemStats.Properties.Resources.resources
+c:\users\freddan962\documents\visual studio 2015\Projects\RandomItemStats\RandomItemStats\obj\Debug\RandomItemStats.csproj.GenerateResource.Cache
+c:\users\freddan962\documents\visual studio 2015\Projects\RandomItemStats\RandomItemStats\obj\Debug\RandomItemStats.exe
+c:\users\freddan962\documents\visual studio 2015\Projects\RandomItemStats\RandomItemStats\obj\Debug\RandomItemStats.pdb
+c:\users\freddan962\documents\visual studio 2015\Projects\RandomItemStats\RandomItemStats\bin\Debug\MySql.Data.dll
