@@ -15,7 +15,7 @@
 
     $core_tc = true; //TrinityCore on/off
     $table_tc = "account"; //Account Table for TC
-    $db_tc = "auth"; //Auth Database for TC
+    $db_tc = "acore_auth"; //Auth Database for TC
 
     $core_arc = false; //ArcEmu on/off
     $table_arc = "accounts"; //Account Table for ArcEmu

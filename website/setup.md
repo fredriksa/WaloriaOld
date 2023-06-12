@@ -1,0 +1,1 @@
+Enable GMP in \php\php.ini. Change line with ";extension=gmp" to "extension=gmp" and restart webserver.

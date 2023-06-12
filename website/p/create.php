@@ -44,19 +44,11 @@
     <h3>2. Will characters be wiped?</h4>
     <p>Characters will be wiped upon sever release.</p>
     <h4>3. When will the server be released?</h4>
-    <p>There's no ETA but I can guarantee it's not before late january.</p>
+    <p>No ETA. It's a hobby project and will grow with time.</p>
     <h3>4. What content is available?</h3>
     <p>Content is currently restricted to Vanilla.</p>
-    <h3>5. Is there a max amount of spells one character can have?</h3>
-    <p>The max amount of spells one character can have would be every single spell in the game.</p>
-    <h3>6. Are all weapon and armor skills available?</h3>
-    <p>Yes they are all available from the moment you create your character.</p>
-    <h3>7. How long will the test server be up for?</h3>
+    <h3>5. How long will the test server be up for?</h3>
     <p>The test server will not be taken offline BUT stability issues and restarts might occur outside of testing sessions.</p>
-    <h3>8. Are the creatures harder than normal?</h3>
+    <h3>6. Are the creatures harder than normal?</h3>
     <p>Yes, all creatures in the world have had their difficulty scaled. This leads to player grouping and interaction. </p>
-
-
-
-
 </center>

@@ -22,7 +22,7 @@
             <header>
               <span class="avatar"><img src="http://www.waloria.com/imgs/walorialogo.png" alt="" /></span>
               <h1>Waloria</h1>
-              <p>Open Beta Classless Server</p>
+              <p>Open Beta Hardmode Server</p>
             </header>
             
             <hr />
@@ -56,7 +56,7 @@
                 <li style="width:100%"><a href="http://waloria.com/onlineplayers.php" class="button" style="width:100%">Online Players</a></li>
               </ul>
               <ul class="actions">
-                <li style="width:100%"><a href="https://discord.gg/t74TxEG" class="button" style="width:100%">Join Discord</a></li>
+                <li style="width:100%"><a href="https://discord.gg/RmkwwFVUg3" class="button" style="width:100%">Join Discord</a></li>
               </ul>
               </div>
               

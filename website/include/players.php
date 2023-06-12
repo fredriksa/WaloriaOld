@@ -1,5 +1,5 @@
 <?php
-  $con = mysqli_connect("localhost", "root", "ascent", "characters");
+  $con = mysqli_connect("localhost", "root", "ascent", "acore_characters");
 
   if (mysqli_connect_errno())
   {

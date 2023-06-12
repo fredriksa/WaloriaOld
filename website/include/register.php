@@ -3,180 +3,103 @@
     Simultaneous Core Registration
     coded by Faded - www.EmuDevs.com
 */
-    include('database.php');
+include('database.php');
 
-    $player = $_POST['player'];
-    $password = $_POST['password'];
-    $email  = $_POST['email'];
+// From: https://www.azerothcore.org/wiki/account
+function CalculateSRP6Verifier($username, $password, $salt)
+{
+    // algorithm constants
+    $g = gmp_init(7);
+    $N = gmp_init('894B645E89E1535BBDAD5B8B290650530801B18EBFBF5E8FAB3C82872A3E9BB7', 16);
+    
+    // calculate first hash
+    $h1 = sha1(strtoupper($username . ':' . $password), TRUE);
+    
+    // calculate second hash
+    $h2 = sha1($salt.$h1, TRUE);
+    
+    // convert to integer (little-endian)
+    $h2 = gmp_import($h2, 1, GMP_LSW_FIRST);
+    
+    // g^h2 mod N
+    $verifier = gmp_powm($g, $h2, $N);
+    
+    // convert back to a byte array (little-endian)
+    $verifier = gmp_export($verifier, 1, GMP_LSW_FIRST);
+    
+    // pad to 32 bytes, remember that zeros go on the end in little-endian!
+    $verifier = str_pad($verifier, 32, chr(0), STR_PAD_RIGHT);
+    
+    // done!
+    return $verifier;
+}
 
-    switch ($_POST['expansion'])
+function GetSRP6RegistrationData($username, $password)
+{
+    // generate a random salt
+    $salt = random_bytes(32);
+    
+    // calculate verifier using this salt
+    $verifier = CalculateSRP6Verifier($username, $password, $salt);
+    
+    // done - this is what you put in the account table!
+    return array($salt, $verifier);
+}
+
+$player = $_POST['player'];
+$password = $_POST['password'];
+$email  = $_POST['email'];
+
+switch ($_POST['expansion'])
+{
+    case "Wrath of the Lich King":
+        $tc_expansion = 2;
+        $arc_expansion = 24;
+        break;
+}
+
+list($salt, $verifier) = GetSRP6RegistrationData($player, $password);
+
+$result = $mysqli->select_db($db_tc);
+
+if (!$result)
+{
+    echo "Selection Failed";
+    trigger_error(mysqli_connect_errno(), E_USER_ERROR);
+}
+
+$tc_template = "INSERT INTO `" . $table_tc ."` (`username`, `salt`, `verifier`, `email`, `expansion`) VALUES ('" .
+$player . "','" . $salt . "','" . $verifier . "','" . $email . "'," . $tc_expansion. ")";
+
+echo "\n" . $tc_template . "\n";
+
+$player_query = "SELECT * FROM `" . $table_tc . "` WHERE username='" . $player ."'";
+$playerResult = $mysqli->query($player_query);
+
+if (!$playerResult)
+{
+    echo "Failed to execute!";
+    trigger_error(mysqli_connect_errno(), E_USER_ERROR);
+}
+
+$row = mysqli_num_rows($playerResult);
+
+if ($row != 1)
+{
+    $tc_result = $mysqli->query($tc_template);
+    if (!$tc_result)
     {
-        case "Wrath of the Lich King":
-            $tc_expansion = 2;
-            $arc_expansion = 24;
-            break;
+        echo "Failed to execute!";
+        trigger_error(mysqli_connect_errno(), E_USER_ERROR);
     }
-
-    $sha_pass = sha1(strtoupper($player) . ":" . strtoupper($password));
-
-    if ($core_tc)
+    else
     {
-        $result = $mysqli->select_db($db_tc);
-
-        if (!$result)
-        {
-            echo "Selection Failed";
-            trigger_error(mysqli_connect_errno(), E_USER_ERROR);
-        }
-
-        $tc_template = "INSERT INTO `" . $table_tc ."` (`username`, `sha_pass_hash`, `email`, `expansion`) VALUES ('" .
-        $player . "','" . $sha_pass . "','" . $email . "'," . $tc_expansion. ")";
-
-        $player_query = "SELECT * FROM `" . $table_tc . "` WHERE username='" . $player ."'";
-        $playerResult = $mysqli->query($player_query);
-
-        if (!$playerResult)
-        {
-            echo "Failed to execute!";
-            trigger_error(mysqli_connect_errno(), E_USER_ERROR);
-        }
-
-        $row = mysqli_num_rows($playerResult);
-
-        if ($row != 1)
-        {
-            $tc_result = $mysqli->query($tc_template);
-            if (!$tc_result)
-            {
-                echo "Failed to execute!";
-                trigger_error(mysqli_connect_errno(), E_USER_ERROR);
-            }
-            else
-            {
-                echo "Account '" . $player . "' created.";
-            }
-        }
-        else
-        {
-            echo "Account '" . $player . "' already exists.";
-        }
+        echo "Account '" . $player . "' created.";
     }
-    if ($core_arc)
-    {
-        $result = $mysqli->select_db($db_arc);
+}
+else
+{
+    echo "Account '" . $player . "' already exists.";
+}
 
-        if (!$result)
-        {
-            echo '<div id="container">';
-            echo '<div id="content">';
-            echo 'ArcEmu<BR />';
-            echo "Selection Failed";
-            echo '</div>';
-            echo '</div>';
-            trigger_error(mysqli_connect_errno(), E_USER_ERROR);
-        }
-
-        $arc_template = "INSERT INTO `" . $table_arc ."` (`login`, `encrypted_password`, `email`, `flags`) VALUES ('" .
-        $player . "','" . $sha_pass . "','" . $email . "'," . $arc_expansion. ")";
-
-        $player_query = "SELECT * FROM `" . $table_arc . "` WHERE login='" . $player ."'";
-        $playerResult = $mysqli->query($player_query);
-
-        if (!$playerResult)
-        {
-            echo '<div id="container">';
-            echo '<div id="content">';
-            echo 'ArcEmu<BR />';
-            echo "Failed to execute!";
-            echo '</div>';
-            echo '</div>';
-            trigger_error(mysqli_connect_errno(), E_USER_ERROR);
-        }
-
-        $row = mysqli_num_rows($playerResult);
-
-        if ($row != 1)
-        {
-            $arc_result = $mysqli->query($arc_template);
-            if (!$arc_result)
-            {
-                echo '<div id="container">';
-                echo '<div id="content">';
-                echo 'ArcEmu<BR />';
-                echo "Failed to execute!";
-                echo '</div>';
-                echo '</div>';
-                trigger_error(mysqli_connect_errno(), E_USER_ERROR);
-            }
-            else
-            {
-                echo '<div id="container">';
-                echo '<div id="content">';
-                echo 'ArcEmu<BR />';
-                echo "Account '" . $player . "' created.";
-                echo '</div>';
-                echo '</div>';
-            }
-        }
-        else
-        {
-            echo '<div id="container">';
-            echo '<div id="content">';
-            echo 'ArcEmu<BR />';
-            echo 'player exists';
-            echo '</div>';
-            echo '</div>';
-        }
-    }
-    if ($core_mang)
-    {
-        $result = $mysqli->select_db($db_mang);
-
-        if (!$result)
-        {
-            echo "Selection Failed";
-            trigger_error(mysqli_connect_errno(), E_USER_ERROR);
-        }
-
-        $mang_template = "INSERT INTO `" . $table_mang ."` (`username`, `sha_pass_hash`, `email`, `expansion`) VALUES ('" .
-        $player . "','" . $sha_pass . "','" . $email . "'," . $tc_expansion. ")";
-
-        $player_query = "SELECT * FROM `" . $table_mang . "` WHERE username='" . $player ."'";
-        $playerResult = $mysqli->query($player_query);
-
-        if (!$playerResult)
-        {
-            echo "<p>Failed to execute!</p>";
-            trigger_error(mysqli_connect_errno(), E_USER_ERROR);
-        }
-
-        $row = mysqli_num_rows($playerResult);
-
-        if ($row != 1)
-        {
-            $mang_result = $mysqli->query($mang_template);
-            if (!$mang_result)
-            {
-                echo "<p>Failed to execute!</p>";
-                trigger_error(mysqli_connect_errno(), E_USER_ERROR);
-            }
-            else
-            {
-                echo "<p>Account '" . $player . "' created.</p>";
-            }
-        }
-        else
-        {
-            echo 'Account already exists';
-        }
-    }
-    if (!$core_tc && !$core_arc && !$core_mang)
-    {
-        echo '<div id="container">';
-        echo '<div id="content">';
-        echo 'No cores enabled in config.';
-        echo '</div>';
-        echo '</div>';
-    }
-
-    $mysqli->close();
+$mysqli->close();
